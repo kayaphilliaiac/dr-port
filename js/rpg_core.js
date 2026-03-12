@@ -832,7 +832,8 @@ Bitmap.prototype.initialize = function(width, height) {
         this._createCanvas(width, height);
     }
 
-    this._image = null;
+    this._image = new Image();
+    this._image.crossOrigin = 'anonymous';
     this._url = '';
     this._paintOpacity = 255;
     this._smooth = false;
