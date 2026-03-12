@@ -1194,6 +1194,7 @@ Bitmap.prototype.bltImage = function(source, sx, sy, sw, sh, dx, dy, dw, dh) {
  * @return {String} The pixel color (hex format)
  */
 Bitmap.prototype.getPixel = function(x, y) {
+    image.crossOrigin = "anonymous";
     var data = this._context.getImageData(x, y, 1, 1).data;
     var result = '#';
     for (var i = 0; i < 3; i++) {
