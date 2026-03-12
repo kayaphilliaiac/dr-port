@@ -1676,7 +1676,6 @@ Bitmap.prototype._requestImage = function(url){
 
     if (this._decodeAfterRequest && !this._loader) {
         this._loader = ResourceHandler.createLoader(url, this._requestImage.bind(this, url), this._onError.bind(this));
-        this._image.crossOrigin = "anonymous";
     }
 
     this._image = new Image();
