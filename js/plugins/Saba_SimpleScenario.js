@@ -1,3 +1,6 @@
+var process = process || { env:{} };
+var require = require || function(){};
+
 var Saba;
 (function (Saba) {
     Saba.applyMyMethods = function (myClass, presetClass, applyConstructor) {

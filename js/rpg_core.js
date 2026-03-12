@@ -1642,6 +1642,9 @@ Bitmap.prototype._onError = function() {
  */
 Bitmap.prototype._setDirty = function() {
     this._dirty = true;
+    if (this._baseTexture) {
+        this._baseTexture.update();
+    }
 };
 
 /**
@@ -7048,6 +7051,9 @@ WindowLayer.prototype.update = function() {
  * @private
  */
 WindowLayer.prototype.renderCanvas = function(renderer) {
+    if (!this.visible) return;
+    renderer.flush();
+    renderer.batch.flush();
     if (!this.visible || !this.renderable) {
         return;
     }
