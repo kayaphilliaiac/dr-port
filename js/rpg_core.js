@@ -1347,7 +1347,7 @@ Bitmap.prototype.drawText = function(text, x, y, maxWidth, lineHeight, align) {
         }
         context.save();
         context.font = this._makeFontNameText();
-        context.textAlign = align;
+        context.textAlign = ["left","center","right","start","end"].includes(align) ? align : "left";
         context.textBaseline = 'alphabetic';
         context.globalAlpha = 1;
         this._drawTextOutline(text, tx, ty, maxWidth);
@@ -1535,7 +1535,7 @@ Bitmap.prototype._makeFontNameText = function() {
  */
 Bitmap.prototype._drawTextOutline = function(text, tx, ty, maxWidth) {
     var context = this._context;
-    context.strokeStyle = this.outlineColor;
+    context.strokeStyle = this.outlineColor || "black";
     context.lineWidth = this.outlineWidth;
     context.lineJoin = 'round';
     context.strokeText(text, tx, ty, maxWidth);
@@ -1551,7 +1551,7 @@ Bitmap.prototype._drawTextOutline = function(text, tx, ty, maxWidth) {
  */
 Bitmap.prototype._drawTextBody = function(text, tx, ty, maxWidth) {
     var context = this._context;
-    context.fillStyle = this.textColor;
+    context.fillStyle = this.textColor || "#ffffff";
     context.fillText(text, tx, ty, maxWidth);
 };
 
