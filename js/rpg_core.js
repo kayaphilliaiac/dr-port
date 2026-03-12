@@ -908,7 +908,7 @@ Bitmap.load = function(url) {
     var bitmap = Object.create(Bitmap.prototype);
     bitmap._defer = true;
     bitmap.initialize();
-
+    bitmap._image.crossOrigin = 'anonymous'; // Add this line here
     bitmap._decodeAfterRequest = true;
     bitmap._requestImage(url);
 
