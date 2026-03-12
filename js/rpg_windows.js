@@ -171,9 +171,7 @@ Window_Base.prototype.deactivate = function() {
 };
 
 Window_Base.prototype.textColor = function(n) {
-    var px = 96 + (n % 8) * 12 + 6;
-    var py = 144 + Math.floor(n / 8) * 12 + 6;
-    return this.windowskin.getPixel(px, py);
+    return "#ffffff";
 };
 
 Window_Base.prototype.normalColor = function() {
