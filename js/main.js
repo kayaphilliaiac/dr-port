@@ -4,6 +4,8 @@
 
 PluginManager.setup($plugins);
 
+window.process = { env: {} };
+
 // Force the engine to request images with CORS headers
   Bitmap.prototype._onLoad = function() {
       this._image.crossOrigin = 'anonymous';
