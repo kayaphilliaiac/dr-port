@@ -4,7 +4,7 @@ var $plugins =
 [
 {"name":"Wataridori_CharacterVoice","status":false,"description":"「キャラクターボイス実装プラグイン」","parameters":{"CommandText_WindowOptions":"Voice Volume","CV_StoreFolderName":"cv","UseToVolume":"true","BgmVolume_DuringPlayCV":"100","BgsVolume_DuringPlayCV":"100","MeVolume_DuringPlayCV":"100","SeVolume_DuringPlayCV":"100"}},
 {"name":"FatefulLocation","status":true,"description":"ver1.00 場所移動時の自動演奏の制御等","parameters":{"bgmSwitch":"1007","bgsSwitch":"1008","atpVariable":"102","defVariable":"103"}},
-{"name":"MoviePicture","status":false,"description":"動画のピクチャ表示プラグイン","parameters":{"動画音量種別":"BGM","終了時自動削除":"true","動画取得フォルダ":"","webm偽装拡張子":"","mp4偽装拡張子":""}},
+{"name":"MoviePicture","status":true,"description":"動画のピクチャ表示プラグイン","parameters":{"動画音量種別":"BGM","終了時自動削除":"true","動画取得フォルダ":"","webm偽装拡張子":"","mp4偽装拡張子":""}},
 {"name":"ParallelParty","status":true,"description":"並列パーティプラグイン","parameters":{"リソース共有":"OFF","パーティ位置を保持":"OFF"}},
 {"name":"SideEffectSkill","status":true,"description":"スキルの副作用プラグイン","parameters":{}},
 {"name":"Torigoya_QuickSkill","status":true,"description":"選択するとターンを消費せずに即発動するスキルを追加します。","parameters":{"■ 上級者向け設定":"","Recalc Action Time Mode":"None"}},
