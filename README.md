@@ -1,7 +1,7 @@
 # dr-port
 <<<<<<< HEAD
 eroge game, but really good story n shi
-really really unstable for somereason, will try to fix soon
+yeah bro it works
 
 ## put this into a blank html file to download
 ```<!DOCTYPE html>
@@ -32,6 +32,29 @@ really really unstable for somereason, will try to fix soon
         <script type="text/javascript" src="js/rpg_windows.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+		<script>
+    		// full screen the game --optional, do not add if you dont want full screen-------stole from gn match sorry-----------------
+    		function applycanvasmode() {
+        		let w = 0;
+        		let h = 0;
+        		let maxW = window.innerWidth;
+        		let maxH = window.innerHeight;
+        		if ((maxW * 0.75) > maxH) {
+            		h = maxH;
+            		w = Math.floor((maxH / 3) * 4);
+        		} else {
+            		w = maxW;
+            		h = Math.floor((maxW / 4) * 3);
+        		}
+        		document.querySelector("#GameCanvas").style.width = w + "px";
+        		document.querySelector("#GameCanvas").style.height = h + "px";
+        		document.querySelector("#GameVideo").style.width = w + "px";
+				document.querySelector("#GameVideo").style.height = h + "px";
+        		document.querySelector("#UpperCanvas").style.width = w + "px";
+        		document.querySelector("#UpperCanvas").style.height = h + "px";
+    		}
+    		setInterval(applycanvasmode, 100);
+		</script>
     </body>
 </html>
 ```
