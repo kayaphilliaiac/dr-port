@@ -1,4 +1,5 @@
 # dr-port
+<<<<<<< HEAD
 eroge game, but really good story n shi
 really really unstable for somereason, will try to fix soon
 
@@ -34,3 +35,7 @@ really really unstable for somereason, will try to fix soon
     </body>
 </html>
 ```
+=======
+
+unfinished
+>>>>>>> d74c2f7 (i party like im 21, 20, 21)
