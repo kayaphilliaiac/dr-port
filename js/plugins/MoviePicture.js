@@ -872,6 +872,7 @@
 
     Bitmap_Video.prototype._createVideo = function(url) {
         this._video     = document.createElement('video');
+        this._video.crossOrigin = 'anonymous';
         this._video.src = url;
         this._video.addEventListener('canplaythrough', this._loadListener = this._onLoad.bind(this));
         this._video.addEventListener('ended', this._endedListener = this._onEnded.bind(this));
