@@ -2,7 +2,7 @@
 eroge game, but really good story n shi
 
 ## put this into a blank html file to download
-`<!DOCTYPE html>
+```<!DOCTYPE html>
 <html>
     <head>
 	    <base href="https://cdn.jsdelivr.net/gh/kayaphilliaiac/dr-port@5507e5381b7d278ab16f30006bdb44c7e7c41bc9/">
@@ -32,4 +32,4 @@ eroge game, but really good story n shi
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
-`
+```
