@@ -430,7 +430,9 @@ var Saba;
         var SCENARIO_FILE_NAME = 'Scenario.json';
         SimpleScenario.SCENARIO_PATH = function () {
             // var p = window.location.pathname.replace(/(\/www|)\/[^\/]*$/, pathParam);
-            var p = process.mainModule.filename.replace(/(\/www|)\/[^\/]*$/, pathParam);
+            var p = (typeof process !== 'undefined' && process.mainModule) 
+                ? process.mainModule.filename.replace(/(\/www|)\/[^\/]*$/, pathParam)
+                : window.location.pathname.replace(/(\/www|)\/[^\/]*$/, pathParam);
             if (p.match(/^\/([A-Z]\:)/)) {
                 p = p.slice(1);
             }
@@ -438,7 +440,9 @@ var Saba;
         }();
         var DATA_PATH = function () {
             // var p = window.location.pathname.replace(/(\/www|)\/[^\/]*$/, '/data/');
-            var p = process.mainModule.filename.replace(/(\/www|)\/[^\/]*$/, '/data/');
+            var p = (typeof process !== 'undefined' && process.mainModule) 
+                ? process.mainModule.filename.replace(/(\/www|)\/[^\/]*$/, pathParam)
+                : window.location.pathname.replace(/(\/www|)\/[^\/]*$/, pathParam);
             if (p.match(/^\/([A-Z]\:)/)) {
                 p = p.slice(1);
             }
