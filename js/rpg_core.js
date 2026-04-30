@@ -786,6 +786,7 @@ Bitmap.prototype._createBaseTexture = function(source){
 
 Bitmap.prototype._clearImgInstance = function(){
     this._image.src = "";
+    this._image.crossOrigin = "anonymous";
     this._image.onload = null;
     this._image.onerror = null;
     this._errorListener = null;
@@ -1685,6 +1686,7 @@ Bitmap.prototype._requestImage = function(url){
         this._loadingState = 'decrypting';
         Decrypter.decryptImg(url, this);
     } else {
+        this._image.crossOrigin = "anonymous";
         this._image.src = url;
 
         this._image.addEventListener('load', this._loadListener = Bitmap.prototype._onLoad.bind(this));
