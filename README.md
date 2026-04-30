@@ -1,7 +1,7 @@
 # dr-port
-<<<<<<< HEAD
 eroge game, but really good story n shi
-yeah bro it works
+
+please credit if you use, does not have to be anything major
 
 ## put this into a blank html file to download
 ```<!DOCTYPE html>
