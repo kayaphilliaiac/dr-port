@@ -146,6 +146,5 @@ var $plugins =
 {"name":"MAT_DrawPossessionincludeequip","status":true,"description":"ver1.00 ショップシーンでの持っている数に装備分を含む。","parameters":{}},
 {"name":"CustomizeErrorScreen","status":true,"description":"Customize Error Screen","parameters":{"MainMessage":"The error below occurred. ","HyperLink":"","OutputDetail":"true"}},
 {"name":"VoidFilterPadding","status":true,"description":"古いPCでフィルタすると画面が拡大するのを抑止","parameters":{}},
-{"name":"splash","status":true,"description":"","parameters":{}},
-{name:"web_port_patch",status:true,description:"",parameters:{}}
+{"name":"splash","status":true,"description":"","parameters":{}}
 ];

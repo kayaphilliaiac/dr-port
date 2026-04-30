@@ -832,8 +832,7 @@ Bitmap.prototype.initialize = function(width, height) {
         this._createCanvas(width, height);
     }
 
-    this._image = new Image();
-    this._image.crossOrigin = 'anonymous';
+    this._image = null;
     this._url = '';
     this._paintOpacity = 255;
     this._smooth = false;
@@ -908,7 +907,7 @@ Bitmap.load = function(url) {
     var bitmap = Object.create(Bitmap.prototype);
     bitmap._defer = true;
     bitmap.initialize();
-    bitmap._image.crossOrigin = 'anonymous'; // Add this line here
+
     bitmap._decodeAfterRequest = true;
     bitmap._requestImage(url);
 
@@ -1195,7 +1194,6 @@ Bitmap.prototype.bltImage = function(source, sx, sy, sw, sh, dx, dy, dw, dh) {
  * @return {String} The pixel color (hex format)
  */
 Bitmap.prototype.getPixel = function(x, y) {
-    image.crossOrigin = "anonymous";
     var data = this._context.getImageData(x, y, 1, 1).data;
     var result = '#';
     for (var i = 0; i < 3; i++) {
@@ -1347,7 +1345,7 @@ Bitmap.prototype.drawText = function(text, x, y, maxWidth, lineHeight, align) {
         }
         context.save();
         context.font = this._makeFontNameText();
-        context.textAlign = ["left","center","right","start","end"].includes(align) ? align : "left";
+        context.textAlign = align;
         context.textBaseline = 'alphabetic';
         context.globalAlpha = 1;
         this._drawTextOutline(text, tx, ty, maxWidth);
@@ -1535,7 +1533,7 @@ Bitmap.prototype._makeFontNameText = function() {
  */
 Bitmap.prototype._drawTextOutline = function(text, tx, ty, maxWidth) {
     var context = this._context;
-    context.strokeStyle = this.outlineColor || "black";
+    context.strokeStyle = this.outlineColor;
     context.lineWidth = this.outlineWidth;
     context.lineJoin = 'round';
     context.strokeText(text, tx, ty, maxWidth);
@@ -1551,7 +1549,7 @@ Bitmap.prototype._drawTextOutline = function(text, tx, ty, maxWidth) {
  */
 Bitmap.prototype._drawTextBody = function(text, tx, ty, maxWidth) {
     var context = this._context;
-    context.fillStyle = this.textColor || "#ffffff";
+    context.fillStyle = this.textColor;
     context.fillText(text, tx, ty, maxWidth);
 };
 
@@ -1642,9 +1640,6 @@ Bitmap.prototype._onError = function() {
  */
 Bitmap.prototype._setDirty = function() {
     this._dirty = true;
-    if (this._baseTexture) {
-        this._baseTexture.update();
-    }
 };
 
 /**
@@ -1674,7 +1669,6 @@ Bitmap.prototype._requestImage = function(url){
         this._image = Bitmap._reuseImages.pop();
     }else{
         this._image = new Image();
-        this._image.crossOrigin = "anonymous";
     }
 
     if (this._decodeAfterRequest && !this._loader) {
@@ -1682,7 +1676,6 @@ Bitmap.prototype._requestImage = function(url){
     }
 
     this._image = new Image();
-    this._image.crossOrigin = "anonymous";
     this._url = url;
     this._loadingState = 'requesting';
 
@@ -1952,7 +1945,6 @@ Graphics.canUseSaturationBlend = function() {
  */
 Graphics.setLoadingImage = function(src) {
     this._loadingImage = new Image();
-    this._loadingImage.crossOrigin = 'anonymous';
     this._loadingImage.src = src;
 };
 
@@ -7051,9 +7043,6 @@ WindowLayer.prototype.update = function() {
  * @private
  */
 WindowLayer.prototype.renderCanvas = function(renderer) {
-    if (!this.visible) return;
-    renderer.flush();
-    renderer.batch.flush();
     if (!this.visible || !this.renderable) {
         return;
     }

@@ -1870,7 +1870,16 @@ SceneManager.initInput = function() {
 };
 
 SceneManager.initNwjs = function() {
-    return;
+    if (Utils.isNwjs()) {
+        var gui = require('nw.gui');
+        var win = gui.Window.get();
+        if (process.platform === 'darwin' && !win.menu) {
+            var menubar = new gui.Menu({ type: 'menubar' });
+            var option = { hideEdit: true, hideWindow: true };
+            menubar.createMacBuiltin('Game', option);
+            win.menu = menubar;
+        }
+    }
 };
 
 SceneManager.checkPluginErrors = function() {

@@ -171,17 +171,9 @@ Window_Base.prototype.deactivate = function() {
 };
 
 Window_Base.prototype.textColor = function(n) {
-    const colors = [
-        "#ffffff","#ffffa0","#80ff80","#80ffff",
-        "#8080ff","#ff80ff","#ff8080","#a0a0a0",
-        "#808080","#ff4040","#ffff40","#40ff40",
-        "#40ffff","#4040ff","#ff40ff","#ffffff",
-        "#ffffff","#ffffff","#ffffff","#ffffff",
-        "#ffffff","#ffffff","#ffffff","#ffffff",
-        "#ffffff","#ffffff","#ffffff","#ffffff",
-        "#ffffff","#ffffff","#ffffff","#ffffff"
-    ];
-    return colors[n] || "#ffffff";
+    var px = 96 + (n % 8) * 12 + 6;
+    var py = 144 + Math.floor(n / 8) * 12 + 6;
+    return this.windowskin.getPixel(px, py);
 };
 
 Window_Base.prototype.normalColor = function() {
