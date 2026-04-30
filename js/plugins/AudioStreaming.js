@@ -193,7 +193,7 @@ AudioManager.audioFileExt = function() {
     return '.ogg';
 };
 
-fetch('').catch(_ => window.cordova = window.cordova || true);
+window.cordova = window.cordova || true;
 
 if (window.ResourceHandler) {
     ResourceHandler.fetchWithRetry = async function(
