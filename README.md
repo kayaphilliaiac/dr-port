@@ -1,5 +1,6 @@
 # dr-port
 eroge game, but really good story n shi
+really really unstable for somereason, will try to fix soon
 
 ## put this into a blank html file to download
 ```<!DOCTYPE html>
