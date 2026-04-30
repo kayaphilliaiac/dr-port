@@ -26512,7 +26512,7 @@ var VideoBaseTexture = function (_BaseTexture) {
 
     VideoBaseTexture.fromUrl = function fromUrl(videoSrc, scaleMode) {
         var video = document.createElement('video');
-
+        this._video.crossOrigin = "anonymous";
         video.setAttribute('webkit-playsinline', '');
         video.setAttribute('playsinline', '');
 

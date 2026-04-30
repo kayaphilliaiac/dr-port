@@ -2502,6 +2502,7 @@ Graphics._updateCanvas = function() {
  */
 Graphics._createVideo = function() {
     this._video = document.createElement('video');
+    this._video.crossOrigin = "anonymous";
     this._video.id = 'GameVideo';
     this._video.style.opacity = 0;
     this._video.setAttribute('playsinline', '');
