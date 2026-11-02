@@ -258,25 +258,17 @@ if (window.ResourceHandler) {
             }
         }
         if (!retry) {
-            const error = new Error('Failed to load: ' + url);
-            SceneManager.catchException(error);
-            throw error;
-        } else if (_retryCount < this._defaultRetryInterval.length) {
-            await new Promise(resolve =>
-                setTimeout(resolve, this._defaultRetryInterval[_retryCount])
-            );
-            return this.fetchWithRetry(method, url, _retryCount + 1);
-        } else {
-            if (this._reloaders.length === 0) {
-                Graphics.printLoadingError(url);
-                SceneManager.stop();
-            }
-            return new Promise(resolve =>
-                this._reloaders.push(() =>
-                    resolve(this.fetchWithRetry(method, url, 0))
-                )
-            );
-        }
+    console.error('Failed to load: ' + url);
+    // Return a dummy reader so callers expecting a stream do not throw a TypeError
+    return { _done: true, read() { return Promise.resolve({ done: true }); } };
+} else if (_retryCount < this._defaultRetryInterval.length) {
+    await new Promise(resolve => setTimeout(resolve, this._defaultRetryInterval[_retryCount]) );
+    return this.fetchWithRetry(method, url, _retryCount + 1);
+} else {
+    console.error('Failed to load after retries: ' + url);
+    return { _done: true, read() { return Promise.resolve({ done: true }); } };
+}
+
     };
 }
 
